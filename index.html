@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Блочная модель - простой пример</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    
+    <!-- Селектор: h1 (по тегу) -->
+    <h1>Блочная модель CSS</h1>
+
+    <!-- ========== ЗАДАНИЕ 1: padding, margin, border ========== -->
+    <!-- Демонстрация блочной модели: padding (внутренний отступ), margin (внешний отступ), border (рамка) -->
+    <h2>1. Блок с отступами и рамкой</h2>
+    <!-- Селектор: .block (по классу) -->
+    <div class="block">
+        Это блок
+    </div>
+    <!-- Селектор: .info (по классу) -->
+    <p class="info">У блока: padding: 20px, margin: 30px, border: 5px</p>
+    <p class="info">Ширина блока = 200 + 40 + 10 = 250px</p>
+
+    <!-- ========== ЗАДАНИЕ 2: box-sizing (сравнение content-box и border-box) ========== -->
+    <!-- Показываем разницу в расчетах размеров элементов -->
+    <h2>2. Сравнение box-sizing</h2>
+    <!-- Селектор: .box1 (по классу) - используется content-box (значение по умолчанию) -->
+    <div class="box1">
+        <strong>content-box</strong><br>
+        width: 200px<br>
+        padding: 20px<br>
+        border: 5px
+    </div>
+    <!-- Селектор: .box2 (по классу) - используется border-box -->
+    <div class="box2">
+        <strong>border-box</strong><br>
+        width: 200px<br>
+        padding: 20px<br>
+        border: 5px
+    </div>
+    <p class="info">Оба блока имеют width: 200px, padding: 20px, border: 5px</p>
+    <p class="info">🔵 Синий блок реально 250px (шире) - padding и border ДОБАВЛЯЮТСЯ к ширине<br>🟢 Зеленый блок ровно 200px - padding и border ВНУТРИ ширины</p>
+
+    <!-- ========== ЗАДАНИЕ 3: разные значения display ========== -->
+    <!-- Демонстрируем поведение inline, inline-block, block -->
+    <h2>3. Значения display</h2>
+    
+    <!-- display: inline - элементы располагаются в строку, width/height не работают -->
+    <h3>inline</h3>
+    <!-- Селектор: .inline (по классу) - display: inline -->
+    <span class="inline">1</span>
+    <span class="inline">2</span>
+    <span class="inline">3</span>
+    <p class="info">inline: элементы в строку, размер НЕЛЬЗЯ задать (width/height игнорируются)</p>
+
+    <!-- display: inline-block - элементы в строке, но можно задавать размеры -->
+    <h3>inline-block</h3>
+    <!-- Селектор: .inline-block (по классу) - display: inline-block -->
+    <div class="inline-block">A</div>
+    <div class="inline-block">B</div>
+    <div class="inline-block">C</div>
+    <p class="info">inline-block: в строке, но размеры РАБОТАЮТ (можно задать width и height)</p>
+
+    <!-- display: block - каждый элемент с новой строки, занимает всю ширину -->
+    <h3>block</h3>
+    <!-- Селектор: .block-demo (по классу) - display: block -->
+    <div class="block-demo">Блок 1</div>
+    <div class="block-demo">Блок 2</div>
+    <p class="info">block: каждый с новой строки, занимает всю доступную ширину</p>
+
+    <!-- ========== ЗАДАНИЕ 4: FLEX  ========== -->
+    <!-- display: flex + justify-content + align-items для выравнивания -->
+    <h2>4. Flex - гибкая верстка</h2>
+    <!-- Селектор: .flex (по классу) - display: flex -->
+    <!-- justify-content: center - выравнивание по горизонтали -->
+    <!-- align-items: center - выравнивание по вертикали -->
+    <div class="flex">
+        <!-- Дочерние элементы - флекс-элементы, автоматически выстраиваются по правилам flex -->
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+    </div>
+    <p class="info">flex: justify-content: center (по центру по горизонтали), align-items: center (по центру по вертикали)</p>
+
+    <!-- ========== ЗАДАНИЕ 5: GRID  ========== -->
+    <!-- display: grid для создания сетки -->
+    <h2>5. Grid - сетка</h2>
+    <!-- Селектор: .grid (по классу) - display: grid -->
+    <!-- grid-template-columns: repeat(3, 1fr) - создаем 3 равные колонки -->
+    <div class="grid">
+        <!-- Дочерние элементы автоматически размещаются в ячейки сетки -->
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+    </div>
+    <p class="info">grid: 3 колонки одинаковой ширины (1fr - занимает доступное пространство)</p>
+
+</body>
+</html>

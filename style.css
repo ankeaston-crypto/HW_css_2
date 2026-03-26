@@ -1,0 +1,162 @@
+
+/* ОБЩИЕ СТИЛИ - применяются ко всей странице */
+
+
+/* Селектор: body (по тегу) - применяется к тегу <body> */
+body {
+    font-family: Arial, sans-serif;
+    background: #e8f4f8;
+    padding: 20px;
+}
+
+/* Селектор: h1 (по тегу) - применяется к заголовку первого уровня */
+h1 {
+    color: #2c3e50;
+    text-align: center;
+}
+
+/* Селектор: h2 (по тегу) - применяется ко всем заголовкам второго уровня */
+h2 {
+    background: white;
+    padding: 10px;
+    margin-top: 30px;
+}
+
+/* Селектор: .info (по классу) - применяется к элементам с class="info" */
+.info {
+    background: #f9f9f9;
+    padding: 8px;
+    font-size: 14px;
+    border-left: 3px solid #3498db;
+}
+
+/* ЗАДАНИЕ 1: Блок с padding, margin, border */
+/* Демонстрация блочной модели */
+
+
+/* Селектор: .block (по классу) - применяется к div с class="block" */
+.block {
+    width: 200px;           /* ширина контента */
+    padding: 20px;          /* внутренний отступ - увеличивает размер блока */
+    margin: 30px;           /* внешний отступ - отодвигает от соседей */
+    border: 5px solid #3498db; /* рамка - увеличивает размер блока */
+    background: lightblue;
+    text-align: center;
+}
+/* ИТОГОВАЯ ШИРИНА БЛОКА: 200 + 20+20 + 5+5 = 250px */
+
+/* ============================================ */
+/* ЗАДАНИЕ 2: Сравнение box-sizing */
+/* content-box (по умолчанию) vs border-box */
+/* ============================================ */
+
+/* Селектор: .box1 (по классу) - без box-sizing (content-box по умолчанию) */
+.box1 {
+    width: 200px;
+    padding: 20px;
+    border: 5px solid blue;
+    background: lightblue;
+    margin: 10px;
+    box-sizing: content-box; /* значение по умолчанию,  его можно не писать */
+    /* padding и border ДОБАВЛЯЮТСЯ к ширине → реальная ширина 250px */
+}
+
+/* Селектор: .box2 (по классу) - с box-sizing: border-box */
+.box2 {
+    width: 200px;
+    padding: 20px;
+    border: 5px solid green;
+    background: lightgreen;
+    margin: 10px;
+    box-sizing: border-box; /* padding и border ВНУТРИ заданной ширины → реальная ширина 200px */
+}
+
+
+/* ============================================ */
+/* ЗАДАНИЕ 3: Разные значения display */
+/* inline, inline-block, block - разное поведение элементов */
+/* ============================================ */
+
+/* Селектор: .inline (по классу) - display: inline */
+.inline {
+    display: inline;
+    background: orange;
+    padding: 10px;
+    margin: 5px;
+    /* width и height НЕ РАБОТАЮТ для inline-элементов */
+    /* width: 100px; - не сработает */
+    /* height: 50px; - не сработает */
+}
+
+/* Селектор: .inline-block (по классу) - display: inline-block */
+.inline-block {
+    display: inline-block;
+    width: 80px;        /* ✅ работает */
+    height: 50px;       /* ✅ работает */
+    background: #9b59b6;
+    color: white;
+    text-align: center;
+    line-height: 50px;
+    margin: 5px;
+}
+/* inline-block: как inline (стоит в строке), но с возможностью задать размеры как у block */
+
+/* Селектор: .block-demo (по классу) - display: block */
+.block-demo {
+    display: block;
+    background: #e74c3c;
+    color: white;
+    padding: 10px;
+    margin: 5px;
+    width: 200px;
+}
+/* block: занимает всю доступную ширину (или заданную width), каждый элемент с новой строки */
+
+/* ЗАДАНИЕ 4: FLEX - гибкая верстка */
+/* display: flex + justify-content + align-items */
+
+/* Селектор: .flex (по классу) - флекс-контейнер */
+.flex {
+    display: flex;              /* превращаем контейнер во флекс-контейнер */
+    justify-content: center;    /* выравнивание по горизонтали (главной оси) */
+    align-items: center;        /* выравнивание по вертикали (поперечной оси) */
+    gap: 15px;                  /* расстояние между элементами */
+    background: #ecf0f1;
+    padding: 20px;
+    height: 120px;
+}
+
+/* Селектор: .flex div - выбирает все div внутри .flex (селектор потомка) */
+.flex div {
+    background: #3498db;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 5px;
+}
+/* Дочерние элементы автоматически становятся флекс-элементами */
+
+/* ============================================ */
+/* ЗАДАНИЕ 5: GRID - сеточная верстка */
+/* display: grid + grid-template-columns */
+/* ============================================ */
+
+/* Селектор: .grid (по классу) - грид-контейнер */
+.grid {
+    display: grid;                      /* превращаем контейнер в грид-контейнер */
+    grid-template-columns: repeat(3, 1fr); /* создаем 3 колонки одинаковой ширины */
+    gap: 10px;                          /* расстояние между ячейками */
+    background: #ecf0f1;
+    padding: 20px;
+}
+/* 1fr - это "одна доля" доступного пространства */
+
+/* Селектор: .grid div - выбирает все div внутри .grid (селектор потомка) */
+.grid div {
+    background: #e67e22;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-size: 20px;
+}
+/* Дочерние элементы автоматически заполняют ячейки сетки */
+/* Всего 6 элементов: первые 3 в первую строку, следующие 3 во вторую */
